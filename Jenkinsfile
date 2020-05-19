@@ -11,22 +11,16 @@ def checkoutCode(String url, boolean force, String branch, String credentialsId)
     if (force) {
         deleteDir()
     }
-    checkout([
-            $class                           : 'GitSCM',
-            branches                         : [[name: branch]],
-            doGenerateSubmoduleConfigurations: false,
-            extensions                       : [
-                    [$class: 'CheckoutOption', timeout: 60],
-                    [$class: 'PruneStaleBranch']
-            ],
-            submoduleCfg                     : [],
-            userRemoteConfigs                : [
-                    [credentialsId: credentialsId,
-                     url          : url,
-                     refspec      : '+refs/pull/*:refs/remotes/origin/pr/*'
-                    ]
-            ]
-    ])
+    
+    checkout([$class: 'GitSCM', 
+              branches: [[name: '*/master']], 
+              doGenerateSubmoduleConfigurations: false, 
+              extensions: [], submoduleCfg: [], 
+              userRemoteConfigs: [
+                  [credentialsId: '83ecbcda-8918-4e88-b90e-664c21ff0829', 
+                   url: 'https://github.com/mingmingkong1/test.git']]])
+    
+ 
 }
 
 def getRepoURL(repository) {
