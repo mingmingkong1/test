@@ -92,10 +92,10 @@ pipeline {
             steps {
                 script {
                     if (params.test) {
-                        gt.createBranch('test', params.sourceBr, params.targetBr)
+                        createBranch('test', params.sourceBr, params.targetBr)
                     },
                     if (params.gitPath) {
-                        gt.createBranch1(params.gitPath, params.sourceBr,params.targetBr)
+                        createBranch1(params.gitPath, params.sourceBr,params.targetBr)
                     }
 
                 }
