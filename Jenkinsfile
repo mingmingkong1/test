@@ -49,7 +49,7 @@ def makeTag(String tagName) {
 
 def createBranch(repository, sourceBranch, targetBranch) {
     repoURL = getRepoURL(repository)
-    checkoutCode(repoURL, true, sourceBranch, '83ecbcda-8918-4e88-b90e-664c21ff0829')
+    //checkoutCode(repoURL, true, sourceBranch, '83ecbcda-8918-4e88-b90e-664c21ff0829')
     makeBranch(targetBranch)
 }
 def createBranch1(repository, sourceBranch, targetBranch) {
