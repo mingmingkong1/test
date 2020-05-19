@@ -58,6 +58,12 @@ def createBranch(repository, sourceBranch, targetBranch) {
     checkoutCode(repoURL, true, sourceBranch, 'B40a79e0bee6ebfe697da65c6e11f0db007a289d')
     makeBranch(targetBranch)
 }
+def createBranch1(repository, sourceBranch, targetBranch) {
+    repoURL = repository
+    checkoutCode(repoURL, true, sourceBranch, 'B40a79e0bee6ebfe697da65c6e11f0db007a289d')
+    makeBranch(targetBranch)
+}
+
 
 def createTag(repository, sourceTag, targetTag) {
     repoURL = getRepoURL(repository)
@@ -87,6 +93,9 @@ pipeline {
                 script {
                     if (params.test) {
                         gt.createBranch('test', params.sourceBr, params.targetBr)
+                    },
+                    if (params.gitPath) {
+                        gt.createBranch1(params.gitPath, params.sourceBr,params.targetBr)
                     }
 
                 }
