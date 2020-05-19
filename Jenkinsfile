@@ -69,6 +69,7 @@ properties([
         parameters([
                 choice(choices: 'branch\ntag', description: 'create branch or tag in github?', name: 'branchOrTag'),
                 booleanParam(defaultValue: false, name: 'test'),
+                string(defaultValue: '', description: 'input the git repo', name: 'gitPath'),
                 string(defaultValue: '', description: 'input the source branch or tag name you want to copy from', name: 'sourceBr'),
                 string(defaultValue: '', description: 'input the target branch or tag name you want to copy to', name: 'targetBr')
         ])
