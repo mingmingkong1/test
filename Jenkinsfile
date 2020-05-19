@@ -7,7 +7,7 @@ def gitConfigNameAndEmail(String name, String email) {
 }
 
 def checkoutCode(String url, boolean force, String branch, String credentialsId) {
-    gitConfigNameAndEmail('SMAX-Jenkins', 'smax-jenkins@microfocus.com')
+    gitConfigNameAndEmail('mingmingkong1', 'kongmingming2007@126.com')
     if (force) {
         deleteDir()
     }
@@ -91,19 +91,4 @@ pipeline {
                 }
             }
         }
-        stage('cloning tag') {
-            when {
-                expression { params.branchOrTag == 'tag' }
-            }
-            steps {
-                script {
-                    if (params.test) {
-                        gt.createTag('test', params.sourceBr, params.targetBr)
-                    }
-                   
-                   
-                }
-            }
-        }
-    }
-}
+      
