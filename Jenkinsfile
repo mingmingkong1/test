@@ -13,8 +13,8 @@ pipeline {
             steps { 
                 sh 'pwd' 
                 sh 'ls -al'
-                sh "echo param.password"
-                sh "echo param.username"
+                sh "echo params.password"
+                sh "echo params.username"
             }
         }
         
