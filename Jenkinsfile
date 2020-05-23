@@ -11,8 +11,8 @@ node{
   
                 sh 'pwd' 
                 sh 'ls -al'
-                sh "echo params.password"
-                sh "echo params.username"
+                sh "echo ${params.password}"
+                sh "echo ${params.user}"
       
         }
 }
