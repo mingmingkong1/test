@@ -5,17 +5,16 @@ properties([
                 password(defaultValue: '', description: '', name: 'password')
         ])
 ])
-pipeline { 
-    agent any 
+node{ 
 
     stages {
         stage('Build') { 
-            steps { 
+  
                 sh 'pwd' 
                 sh 'ls -al'
                 sh "echo params.password"
                 sh "echo params.username"
-            }
+      
         }
         
     }
