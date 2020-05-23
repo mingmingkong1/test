@@ -27,7 +27,7 @@ node{
                 AN_ACCESS_KEY = credentials('kongkey')
              
                 }
-                sh "echo env.AN_ACCESS_KEY_USER"
+                sh "printenv"
            
       
         }
