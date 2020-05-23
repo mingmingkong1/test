@@ -7,7 +7,6 @@ properties([
 ])
 node{ 
 
-    stages {
         stage('Build') { 
   
                 sh 'pwd' 
@@ -16,6 +15,4 @@ node{
                 sh "echo params.username"
       
         }
-        
-    }
 }
