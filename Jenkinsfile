@@ -6,6 +6,8 @@ pipeline {
             steps { 
                 sh 'pwd' 
                 sh 'ls -al'
+                sh "cd ../${kongaccess}"
+                sh "cat ${kongaccess}"
             }
         }
         
