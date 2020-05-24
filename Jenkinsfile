@@ -14,7 +14,7 @@ node{
   
                 sh 'pwd' 
                 sh 'ls -al'
-                sh "echo ${params.password}"
+                sh "set +x;echo ${params.password}"
                 sh "echo ${params.user}"
                 
                 withCredentials([file(credentialsId: "${params.KEY_FILE}", variable: 'aws_key_file')]) {
