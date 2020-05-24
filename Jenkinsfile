@@ -13,7 +13,7 @@ properties([
 
 
 node{ 
-         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: KEY, var: 'password']]]) {
+         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: password, var: 'password']]]) {
                   sh "echo ${password}"
        
          }
