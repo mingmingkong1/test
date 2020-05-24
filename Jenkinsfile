@@ -2,14 +2,18 @@ properties([
         parameters([
               
                 string(defaultValue: 'kong', description: '',name: 'user', trim: false),
-                //password(defaultValue: 'null', description: '', name: 'password'),
-                nonStoredPasswordParam(description: '', name: 'password'),
+                password(defaultValue: 'null', description: '', name: 'password'),
+                //nonStoredPasswordParam(description: '', name: 'password'),
                
                 credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: '83ecbcda-8918-4e88-b90e-664c21ff0829', description: '', name: 'kongkey', required: false),
                 credentials(name: 'KEY_FILE', defaultValue: 'aws_accessKeys_key.csv', description: '<font size="2" face="Verdana" color="red">AWS credential key .csv file, must choose the key file</font>', credentialType: "org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl", required: true)
         ])
 ])
 node{ 
+         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: "${params.password}", var: 'password']]]) {
+       
+         sh 'echo "Hello World ${params.password}"'
+         }
 
         stage('Build') { 
   
