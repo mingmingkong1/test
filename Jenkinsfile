@@ -13,12 +13,14 @@ properties([
 
 
 node{ 
-         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: password, var: 'password']]]) {
-                  sh "echo ${password}"
-       
-         }
 
-        stage('Build') { 
+        stage('Build') {          
+                wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: password, var: 'password']]]) {
+          
+       
+         
+
+                
   
                 sh 'pwd' 
                 sh 'ls -al'
@@ -37,6 +39,7 @@ node{
              
                 }
                 sh "printenv"
+                        }
            
       
         }
