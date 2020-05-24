@@ -25,7 +25,7 @@ node{
                 sh 'pwd' 
                 sh 'ls -al'
                 //sh(script:"#!/bin/sh -e\ncd ${terraform_location} && sed -i s/{{AWS_SECRET_ACCESS_KEY}}/${aws_secret_key}/ providers.tf", returnStatus:true)
-                sh (script:'#!/bin/sh -e\n' +"echo ${params.password}")
+                sh(script:"#!/bin/sh -e\n echo ${params.password})
                 sh "echo ${params.user}"
                 
                 withCredentials([file(credentialsId: "${params.KEY_FILE}", variable: 'aws_key_file')]) {
