@@ -32,8 +32,9 @@ node{
                 def aws_key_content = readCSV file: aws_key_file
                 aws_access_key_id = "${aws_key_content[1][0]}"
                 aws_secret_access_key = "${aws_key_content[1][1]}"
-                            }
+                            
                 sh "echo ${aws_secret_access_key}"
+                }
                 environment { 
                 AN_ACCESS_KEY = credentials('kongkey')
              
