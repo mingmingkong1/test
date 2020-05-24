@@ -9,10 +9,13 @@ properties([
                 credentials(name: 'KEY_FILE', defaultValue: 'aws_accessKeys_key.csv', description: '<font size="2" face="Verdana" color="red">AWS credential key .csv file, must choose the key file</font>', credentialType: "org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl", required: true)
         ])
 ])
+
+
+
 node{ 
-         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: "${params.password}", var: 'password']]]) {
+         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: KEY, var: 'password']]]) {
+                  sh "echo ${password}"
        
-         sh 'echo "Hello World ${params.password}"'
          }
 
         stage('Build') { 
