@@ -15,7 +15,7 @@ properties([
 node{ 
 
         stage('Build') {          
-                wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: password, var: 'password']]]) {
+                wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: password, var: 'password']]]) {}
           
        
          
@@ -39,7 +39,7 @@ node{
              
                 }
                 sh "printenv"
-                        }
+                        
            
       
         }
