@@ -10,7 +10,7 @@ properties([
         ])
 ])
 
-ecr = params.ecr_uri
+//ecr = params.ecr_uri
 //ecr =  params.ecr_uri.split("\\.")[3]
 
 
@@ -23,7 +23,7 @@ node{
          
 
                 
-                sh 'echo $ecr'
+                sh "echo $params.ecr_uri"
                 sh 'pwd' 
                 sh 'ls -al'
                 //sh(script:"#!/bin/sh -e\ncd ${terraform_location} && sed -i s/{{AWS_SECRET_ACCESS_KEY}}/${aws_secret_key}/ providers.tf", returnStatus:true)
