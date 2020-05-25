@@ -11,8 +11,8 @@ properties([
 ])
 
 //ecr = params.ecr_uri
-ecr =  params.ecr_uri
-ecr_region = $ecr.split("\\.")[3]
+ 
+ecr_region = params.ecr_uri.split("\\.")[3]
 
 node{ 
 
