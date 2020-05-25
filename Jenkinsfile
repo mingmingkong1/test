@@ -10,7 +10,8 @@ properties([
         ])
 ])
 
-ecr =  params.ecr_uri.split("\\.")[3]
+ecr = params.ecr_uri
+//ecr =  params.ecr_uri.split("\\.")[3]
 echo $ecr
 
 node{ 
