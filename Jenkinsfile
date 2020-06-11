@@ -13,6 +13,7 @@ node{
           
        
                 sh " cat ${WORKSPACE}/scripta.sh"
+                sh "${WORKSPACE}/scripta.sh"
           
                 } 
 
