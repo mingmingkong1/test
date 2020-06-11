@@ -14,12 +14,12 @@ properties([
 node{ 
 
         stage('Build') {          
-                wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: password, var: 'password']]]) {}
+              checkout scm
           
        
-                dir("${env.WORKSPACE}/${env.BUILD_ID}"){
-                        sh """
-                        ./scripta.sh 
+              sh """
+              cd ${WORKSPACE}
+              ./scripta.sh 
                         """
                 } 
 
