@@ -13,6 +13,8 @@ node{
           
        
                 sh " cat ${WORKSPACE}/scripta.sh"
+                sh "chmod 777 ${WORKSPACE}/scripta.sh"
+                echo params.user
                 sh "${WORKSPACE}/scripta.sh"
           
                 } 
