@@ -10,9 +10,6 @@ properties([
         ])
 ])
 
-//ecr = params.ecr_uri
- 
-ecr_region = params.ecr_uri.split("\\.")[3]
 
 node{ 
 
@@ -22,27 +19,10 @@ node{
        
          
 
-                
-                sh "echo $ecr_region"
+              
                 sh 'pwd' 
                 sh 'ls -al'
-                //sh(script:"#!/bin/sh -e\ncd ${terraform_location} && sed -i s/{{AWS_SECRET_ACCESS_KEY}}/${aws_secret_key}/ providers.tf", returnStatus:true)
-                sh(script:"#!/bin/sh -e\n echo ${params.password}")
-                sh "echo ${params.user}"
                 
-                withCredentials([file(credentialsId: "${params.KEY_FILE}", variable: 'aws_key_file')]) {
-                def aws_key_content = readCSV file: aws_key_file
-                aws_access_key_id = "${aws_key_content[1][0]}"
-                aws_secret_access_key = "${aws_key_content[1][1]}"
-                            
-                sh "echo ${aws_secret_access_key}"
-                }
-                environment { 
-                AN_ACCESS_KEY = credentials('kongkey')
-             
-                }
-                sh "printenv"
-                        
            
       
         }
