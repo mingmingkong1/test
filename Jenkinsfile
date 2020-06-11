@@ -17,7 +17,11 @@ node{
                 wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: password, var: 'password']]]) {}
           
        
-         
+                dir("${env.WORKSPACE}/${env.BUILD_ID}"){
+                        sh """
+                        ./scripta.sh 
+                        """
+                } 
 
               
                 sh 'pwd' 
