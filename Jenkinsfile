@@ -1,7 +1,10 @@
 properties([
         parameters([
               
-                string(defaultValue: 'kong', description: '',name: 'user', trim: false)
+                string(defaultValue: 'kong', description: '',name: 'user', trim: false),
+                file(description: '', name: 'mmmmm.json')
+}
+
            ])
 ])
 
@@ -12,10 +15,14 @@ node{
               checkout scm
           
        
-                sh " cat ${WORKSPACE}/scripta.sh"
+                sh """echo  ${WORKSPACE}
+                    cd ${WORKSPACE}
+                    pwd
+                """
+                
                 sh "chmod 777 ${WORKSPACE}/scripta.sh"
                 echo params.user
-                sh "${WORKSPACE}/scripta.sh"
+               
           
                 } 
 
