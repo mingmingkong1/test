@@ -3,7 +3,6 @@ properties([
               
                 string(defaultValue: 'kong', description: '',name: 'user', trim: false),
                 file(description: '', name: 'mmmmm.json')
-}
 
            ])
 ])
