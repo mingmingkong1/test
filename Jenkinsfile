@@ -11,12 +11,12 @@ node{
 
         stage('Build') {          
               checkout scm
-              withCredentials([string(credentialsId: password, variable: 'password')]) {  
+         
               def kong=load("abc.groovy")
                 kong.test()
        
           
-                } 
+         
 }
    
            
