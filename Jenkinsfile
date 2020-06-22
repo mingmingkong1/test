@@ -1,25 +1,24 @@
-properties([
-        parameters([
-              
-                string(defaultValue: 'kong', description: '',name: 'user', trim: false)
-
-           ])
-])
 
 
 node{ 
 
         stage('Build') {          
               checkout scm
-         
-              def kong=load("abc.groovy")
-                kong.test()
+              withCredentials([string(credentialsId: 'kongmingpassword', variable: 'KONGPASSWORD')]) {
+                  sh """
+                  sshpass -p ${KONGPASSWORD} ssh -o StrictHostKeyChecking=no root@15.119.88.51 "ls -al"
+                  """
+              
+              }
+              
+
+   
        
           
          
-}
+           }
    
            
       
-        
-}
+}    
+
