@@ -1,5 +1,5 @@
 def test(){
-withCredentials([string(credentialsId: passwords, variable: 'password')]) {
+    withCredentials([string(credentialsId: password, variable: 'password')]) {
     echo "the password is  ${password}"
 }
 
