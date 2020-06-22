@@ -11,7 +11,7 @@ node{
 
         stage('Build') {          
               checkout scm
-              def kong=load("abc.grovvy")
+              def kong=load("abc.groovy")
                 kong.test()
        
           
