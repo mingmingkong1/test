@@ -4,6 +4,10 @@ node{
 
         stage('Build') {          
               checkout scm
+              def workdir = "${env.WORKSPACE}"
+               def ll =  workdir.tokenize('/')[-1]
+                println ll
+              
               def kongconfig = load("abc.groovy")
               withCredentials([string(credentialsId: 'kongmingpassword', variable: 'KONGPASSWORD')]) {
                   kongconfig.test()
