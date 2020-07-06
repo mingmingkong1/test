@@ -1,4 +1,23 @@
 
+def checkoutCode(String url, boolean force, String branch, String credentialsId) {
+  
+    checkout([
+            $class                           : 'GitSCM',
+            branches                         : [[name: branch]],
+            doGenerateSubmoduleConfigurations: false,
+            extensions                       : [
+                    [$class: 'CheckoutOption', timeout: 60],
+                    [$class: 'PruneStaleBranch']
+            ],
+            submoduleCfg                     : [],
+            userRemoteConfigs                : [
+                    [credentialsId: credentialsId,
+                     url          : url,
+                     refspec      : '+refs/pull/*:refs/remotes/origin/pr/*'
+                    ]
+            ]
+    ])
+}
 properties([
         parameters([
              
@@ -9,6 +28,9 @@ node{
 
         stage('Build') {          
               checkout scm
+             withCredentials([string(credentialsId: kmm, variable: 'CREDENTIAL_PASSWORD')]){
+                
+             checkoutCode('git@github.com:mingmingkong1/test.git', true, 'master', "${CREDENTIAL_PASSWORD}")}
               def workdir = "${env.WORKSPACE}"
                def ll =  workdir.tokenize('/')[-1]
                 println ll
