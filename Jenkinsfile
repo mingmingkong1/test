@@ -1,5 +1,10 @@
 
-
+properties([
+        parameters([
+             
+                string(defaultValue: '', description: 'input the git repo you want to create branch or create tag, like git@github.houston.softwaregrp.net:northstar/dnd.git ', name: 'ssh_git_repo')
+        ])
+])
 node{ 
 
         stage('Build') {          
@@ -14,7 +19,13 @@ node{
                       
                   sh """
                   sshpass -p ${KONGPASSWORD} ssh -o StrictHostKeyChecking=no root@15.119.88.51 "ls -al"
+                 
                   """
+                      if (params.ssh_git_repo != null){
+                              print params.ssh_git_repo
+                      }else{
+                              print "ddddddddddd"
+                      }
               
               }
               
