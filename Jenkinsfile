@@ -21,10 +21,10 @@ node{
                   sshpass -p ${KONGPASSWORD} ssh -o StrictHostKeyChecking=no root@15.119.88.51 "ls -al"
                  
                   """
-                      if (params.ssh_git_repo != null){
-                              print params.ssh_git_repo
+                      if (params.ssh_git_repo){
+                              echo params.ssh_git_repo
                       }else{
-                              print "ddddddddddd"
+                              echo"ddddddddddd"
                       }
               
               }
