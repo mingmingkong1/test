@@ -17,7 +17,7 @@ node{
               def workdir = "${env.WORKSPACE}"
                def ll =  workdir.tokenize('/')[-1]
                 println ll
-                if(params.VERSION in version_list){
+                if(params.VERSION not in version_list){
                 print params.VERSION
             }else{
                 print "nooooooooo"
