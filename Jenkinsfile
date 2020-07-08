@@ -8,6 +8,15 @@ properties([
         ])
 ])
 def version_list = ["2019.08","2019.11","2020.02"]
+def a='[{a=html,b=test},{c=html2,b=test2}]'
+def lista(testlist){
+        def testkong=[]
+        for(i in testlist){
+               
+                testkong.add(i)
+        }
+        return testkong
+}
 node{ 
       
 
@@ -24,7 +33,7 @@ node{
             }
             
               echo "1111111111111111111111111111"
-      
+             print lista(['23','45'])
               
               def kongconfig = load("abc.groovy")
               withCredentials([string(credentialsId: 'kongmingpassword', variable: 'KONGPASSWORD')]) {
