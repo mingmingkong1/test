@@ -15,8 +15,12 @@ node{
               def workdir = "${env.WORKSPACE}"
                def ll =  workdir.tokenize('/')[-1]
                 println ll
+              def certificate_file = unstashParam "CERT_FILE"
+                        sh("cp -f ${certificate_file} /app/keys/cert.pfx")
+                        sh("rm -rf ${certificate_file}")
+                
               echo "1111111111111111111111111111"
-               if(params.CERT_FILE){
+                if(${certificate_file} != null ){
                                 echo "uploaded"
                }else{
                  echo "no file"
