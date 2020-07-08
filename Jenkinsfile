@@ -17,18 +17,14 @@ node{
               def workdir = "${env.WORKSPACE}"
                def ll =  workdir.tokenize('/')[-1]
                 println ll
-            if(params.VERSION not in "version_list"){
+                if(params.VERSION in ${version_list}){
                 print params.VERSION
             }else{
                 "nooooooooo"
             }
             
               echo "1111111111111111111111111111"
-                if(${certificate_file} != null ){
-                                echo "uploaded"
-               }else{
-                 echo "no file"
-               }
+      
               
               def kongconfig = load("abc.groovy")
               withCredentials([string(credentialsId: 'kongmingpassword', variable: 'KONGPASSWORD')]) {
