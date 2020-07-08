@@ -20,7 +20,7 @@ node{
                 if(params.VERSION in version_list){
                 print params.VERSION
             }else{
-                "nooooooooo"
+                print "nooooooooo"
             }
             
               echo "1111111111111111111111111111"
