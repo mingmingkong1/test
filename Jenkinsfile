@@ -4,11 +4,12 @@ properties([
         parameters([
                file(description: 'Self-signed certification file', name: 'CERT_FILE'),
              
-                string(defaultValue: '',  name: 'VERSION')
+                string(defaultValue: '',  name: 'stageStatus')
         ])
 ])
 def version_list = ["2019.08","2019.11","2020.02"]
 String[] ll=[ '15_revert_vm:success';'17_config_vm:success' ]
+String[] stages = stageStatus.split(";")
 
 def lista(testlist){
         def testkong=[]
@@ -34,7 +35,7 @@ node{
             }
             
               echo "1111111111111111111111111111"
-             print lista(['23','45'])
+             print stages
               
               def kongconfig = load("abc.groovy")
               withCredentials([string(credentialsId: 'kongmingpassword', variable: 'KONGPASSWORD')]) {
