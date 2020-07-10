@@ -8,6 +8,7 @@ properties([
         ])
 ])
 def version_list = ["2019.08","2019.11","2020.02"]
+String[] ll=[ 15_revert_vm:success;17_config_vm:success;20_deploy_smax:success;22_wait_smax_install_finish:success ]
 
 def lista(testlist){
         def testkong=[]
@@ -26,10 +27,10 @@ node{
               def workdir = "${env.WORKSPACE}"
                def ll =  workdir.tokenize('/')[-1]
                 println ll
-                if(! params.VERSION  in version_list){
-                print params.VERSION +"not in list"
+                if( "15_revert_vm.*"  in ll){
+                print "in list"
             }else{
-                print params.VERSION
+                print "not i lits"
             }
             
               echo "1111111111111111111111111111"
