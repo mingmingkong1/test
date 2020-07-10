@@ -8,7 +8,7 @@ properties([
         ])
 ])
 def version_list = ["2019.08","2019.11","2020.02"]
-String[] ll=[ 15_revert_vm:success;17_config_vm:success;20_deploy_smax:success;22_wait_smax_install_finish:success ]
+String[] ll=[ '15_revert_vm:success';'17_config_vm:success' ]
 
 def lista(testlist){
         def testkong=[]
