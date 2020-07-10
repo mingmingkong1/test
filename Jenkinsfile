@@ -8,7 +8,7 @@ properties([
         ])
 ])
 def version_list = ["2019.08","2019.11","2020.02"]
-def a='[{a=html,b=test},{c=html2,b=test2}]'
+
 def lista(testlist){
         def testkong=[]
         for(i in testlist){
