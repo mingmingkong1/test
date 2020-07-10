@@ -29,7 +29,7 @@ node{
                 if(! params.VERSION  in version_list){
                 print params.VERSION +"not in list"
             }else{
-                print "params.VERSION"
+                print params.VERSION
             }
             
               echo "1111111111111111111111111111"
